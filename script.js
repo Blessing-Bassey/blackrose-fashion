@@ -1,20 +1,36 @@
-console.log("BlackRose script loaded!");
-// Contact form submission logic
+console.log("BlackRose script working");
+
+// Show today's date in footer
+document.addEventListener("DOMContentLoaded", function () {
+  const dateNote = document.getElementById("dateNote");
+  if (dateNote) {
+    const today = new Date();
+    const formatted = today.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    dateNote.textContent = formatted;
+    dateNote.style.textAlign = "center";
+  }
+});
+
+// Contact form submission logic (inquiries.html)
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
-  const responseMsg = document.getElementById("formResponse");
+  const response = document.getElementById("formResponse");
 
-  if (form) {
+  if (form && response) {
     form.addEventListener("submit", function (e) {
-      e.preventDefault(); // prevent page reload
-
-      // Simulate form submission
-      responseMsg.classList.remove("hidden");
-      form.reset(); // clear form
+      e.preventDefault();
+      form.reset();
+      response.classList.remove("hidden");
+      response.textContent = "Thank you! We will get back to you shortly.";
     });
   }
 });
-// Countdown Timer for Event (Aug 15, 2025)
+
+// Countdown Timer (events.html)
 function startCountdown() {
   const countdown = document.getElementById("countdown");
   if (!countdown) return;
@@ -41,30 +57,44 @@ function startCountdown() {
     countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }, 1000);
 }
-
 startCountdown();
-// Handle form submission
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  const response = document.getElementById("formResponse");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent real form submission
-
-    // Optionally, you can reset the form
-    form.reset();
-
-    // Show thank-you message
-    response.classList.remove("hidden");
-    response.textContent = "Thank you! We will get back to you shortly.";
-  });
-});
+// Trustees photo click (trustees.html)
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
-  const response = document.getElementById("formResponse");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevents the page from reloading
-    responseMessage.classList.remove("hidden"); // Show the thank you message
+  const trustees = document.querySelectorAll(".trustee img");
+  trustees.forEach((img) => {
+    img.addEventListener("click", () => {
+      alert("You clicked on a trustee!");
+    });
   });
 });
+
+// DOM Structure log (dom-structure.html)
+console.log("DOM loaded:", document.body.children);
+
+// Display current date on DOM Structure page
+const dateElement = document.getElementById("currentDate");
+if (dateElement) {
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  dateElement.textContent = formattedDate;
+}
+
+// Background color change
+function changeBackgroundColor() {
+  document.body.style.backgroundColor = getRandomColor();
+}
+
+// Generate random color
+function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
