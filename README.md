@@ -26,8 +26,7 @@ HOW TO USE:
 1. Open the folder named "BlackRose Fashion House".
 2. Double-click on `index.html` to launch the website in any modern browser (Chrome, Firefox, Edge, etc.)
 3. Navigate through the other pages using the links on the site.
-   4 You can also click on this link:https://blessing-bassey.github.io/blackrose-fashion
-
+   4 You can also click on this link:https://blessing-bassey.github.io/blackrose-fashion/
 NOTES:
 
 - The website uses a dark gradient background theme with soft section highlighting.
